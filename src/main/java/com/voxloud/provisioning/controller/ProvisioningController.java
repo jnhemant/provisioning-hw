@@ -17,7 +17,6 @@ public class ProvisioningController {
     @Autowired
     private ProvisioningService provisioningService;
 
-    // TODO Implement controller method
     @GetMapping(value = "provisioning/{macAddress}", produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> getConfiguration(@PathVariable String macAddress){
         String config = provisioningService.getProvisioningFile(macAddress);
