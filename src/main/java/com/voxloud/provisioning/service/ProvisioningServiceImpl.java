@@ -27,6 +27,11 @@ public class ProvisioningServiceImpl implements ProvisioningService {
     @Value("${provisioning.codecs}")
     private String codecs;
 
+    /**
+     * Generate the provisioning file for given MAC Address
+     * @param macAddress - MAC Address of device in String format
+     * @return Provisioning file in String format
+     */
     public String getProvisioningFile(String macAddress) {
         Optional<Device> deviceConfig = deviceRepository.findById(macAddress);
         if(!deviceConfig.isPresent()){

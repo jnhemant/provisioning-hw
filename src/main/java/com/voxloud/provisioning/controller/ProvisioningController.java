@@ -17,6 +17,11 @@ public class ProvisioningController {
     @Autowired
     private ProvisioningService provisioningService;
 
+    /**
+     * Endpoint exposed to fetch provisioning file for given MAC Address
+     * @param macAddress - MAC Address of device in String format
+     * @return ResponseEntity containing status code and the body
+     */
     @GetMapping(value = "provisioning/{macAddress}", produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> getConfiguration(@PathVariable String macAddress){
         String config = provisioningService.getProvisioningFile(macAddress);
